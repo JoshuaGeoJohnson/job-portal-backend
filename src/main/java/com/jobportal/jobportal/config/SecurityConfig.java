@@ -24,8 +24,8 @@ public class SecurityConfig {
 
             .authorizeHttpRequests(auth -> auth
 
-                // PUBLIC
-                .requestMatchers("/auth/login", "/student/register", "/employer/register").permitAll()
+                // ✅ PUBLIC APIs (FIXED)
+                .requestMatchers("/auth/**").permitAll()
 
                 // EMPLOYER
                 .requestMatchers("/job/post/**").hasRole("EMPLOYER")
